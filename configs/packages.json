@@ -1,0 +1,109 @@
+{
+  "version": "1.0.0",
+  "description": "Referencia central de IDs de pacotes. Atualize aqui ao trocar versoes.",
+  "packageManagers": {
+    "chocolatey": {
+      "installUrl": "https://community.chocolatey.org/install.ps1",
+      "testCommand": "choco"
+    }
+  },
+  "scripts": {
+    "01-package-managers": {
+      "packages": [
+        { "name": "Git",        "wingetId": "Git.Git",    "chocoId": "git", "testCommand": "git" },
+        { "name": "GitHub CLI", "wingetId": "GitHub.cli", "chocoId": "gh",  "testCommand": "gh"  }
+      ]
+    },
+    "02-core-tools": {
+      "packages": [
+        { "name": "Windows Terminal",   "wingetId": "Microsoft.WindowsTerminal",    "chocoId": "microsoft-windows-terminal", "testCommand": ""      },
+        { "name": "PowerShell 7",       "wingetId": "Microsoft.PowerShell",         "chocoId": "powershell-core",            "testCommand": "pwsh"  },
+        { "name": "7-Zip",              "wingetId": "7zip.7zip",                    "chocoId": "7zip",                       "testCommand": "7z"    },
+        { "name": "wget",               "wingetId": "JernejSimoncic.Wget",          "chocoId": "wget",                       "testCommand": "wget"  },
+        { "name": "Visual Studio Code", "wingetId": "Microsoft.VisualStudioCode",   "chocoId": "vscode",                     "testCommand": "code"  },
+        { "name": "Notepad++",          "wingetId": "Notepad++.Notepad++",          "chocoId": "notepadplusplus",             "testCommand": ""      },
+        { "name": "Python Launcher",    "wingetId": "Python.Launcher",              "chocoId": "",                           "testCommand": "py"    }
+      ]
+    },
+    "03-ai-tools": {
+      "npm": [
+        { "name": "Claude Code",  "package": "@anthropic-ai/claude-code", "testCommand": "claude" },
+        { "name": "Gemini CLI",   "package": "@google/gemini-cli",        "testCommand": "gemini" },
+        { "name": "Codex CLI",    "package": "@openai/codex",             "testCommand": "codex"  }
+      ],
+      "gh-extensions": [
+        { "name": "GitHub Copilot", "extension": "github/gh-copilot", "testCommand": "gh copilot" }
+      ],
+      "pipx": [
+        { "name": "Aider",      "package": "aider-chat", "testCommand": "aider"  },
+        { "name": "OpenAI CLI", "package": "openai",     "testCommand": "openai" }
+      ],
+      "winget-optional": [
+        { "name": "Ollama", "wingetId": "Ollama.Ollama", "testCommand": "ollama" }
+      ]
+    },
+    "10-java-env": {
+      "packages": [
+        { "name": "Amazon Corretto 21 JDK", "wingetId": "Amazon.Corretto.21.JDK",              "chocoId": "corretto21jdk",         "testCommand": ""      },
+        { "name": "Apache Maven",           "wingetId": "Apache.Maven",                         "chocoId": "maven",                 "testCommand": "mvn"   },
+        { "name": "Gradle",                 "wingetId": "Gradle.Gradle",                        "chocoId": "gradle",                "testCommand": "gradle"},
+        { "name": "IntelliJ IDEA Community","wingetId": "JetBrains.IntelliJIDEA.Community",     "chocoId": "intellijidea-community", "testCommand": ""      }
+      ],
+      "envVars": {
+        "JAVA_HOME":   "C:\\Program Files\\Amazon Corretto\\jdk21.x.x",
+        "MAVEN_HOME":  "auto-detect via Get-Command mvn",
+        "M2_HOME":     "mesmo que MAVEN_HOME",
+        "GRADLE_HOME": "auto-detect via Get-Command gradle"
+      }
+    },
+    "11-python-env": {
+      "winget": [
+        { "name": "Python 3.12", "wingetId": "Python.Python.3.12", "chocoId": "python312", "testCommand": "python" }
+      ],
+      "pip": [
+        { "name": "pipx",       "package": "pipx",       "testCommand": "pipx"       },
+        { "name": "virtualenv", "package": "virtualenv", "testCommand": "virtualenv" }
+      ],
+      "pipx": [
+        { "name": "Poetry", "package": "poetry", "testCommand": "poetry" },
+        { "name": "Ruff",   "package": "ruff",   "testCommand": "ruff"   },
+        { "name": "Black",  "package": "black",  "testCommand": "black"  }
+      ]
+    },
+    "12-node-env": {
+      "winget": [
+        { "name": "Node.js LTS", "wingetId": "OpenJS.NodeJS.LTS", "chocoId": "nodejs-lts", "testCommand": "node" }
+      ],
+      "npm": [
+        { "name": "pnpm", "package": "pnpm", "testCommand": "pnpm" },
+        { "name": "yarn", "package": "yarn", "testCommand": "yarn" }
+      ]
+    },
+    "13-php-env": {
+      "winget": [
+        { "name": "PHP", "wingetId": "PHP.PHP", "chocoId": "php", "testCommand": "php" }
+      ],
+      "composer": {
+        "installerUrl": "https://getcomposer.org/installer",
+        "installDir": "%ProgramFiles%\\Composer",
+        "testCommand": "composer"
+      }
+    },
+    "20-accessibility-tools": {
+      "packages": [
+        { "name": "NVDA",                              "wingetId": "NVAccess.NVDA",                              "chocoId": "nvda",       "optional": true },
+        { "name": "Microsoft PowerToys",               "wingetId": "Microsoft.PowerToys",                        "chocoId": "powertoys",  "optional": false },
+        { "name": "Accessibility Insights for Windows","wingetId": "Microsoft.AccessibilityInsights.forWindows", "chocoId": "",           "optional": false }
+      ]
+    },
+    "30-dev-utils": {
+      "packages": [
+        { "name": "jq",              "wingetId": "jqlang.jq",        "chocoId": "jq",             "testCommand": "jq",     "optional": false },
+        { "name": "yq",              "wingetId": "MikeFarah.yq",     "chocoId": "yq",             "testCommand": "yq",     "optional": false },
+        { "name": "Postman",         "wingetId": "Postman.Postman",  "chocoId": "postman",        "testCommand": "",       "optional": false },
+        { "name": "DBeaver",         "wingetId": "dbeaver.dbeaver",  "chocoId": "dbeaver",        "testCommand": "",       "optional": false },
+        { "name": "Docker Desktop",  "wingetId": "Docker.DockerDesktop", "chocoId": "docker-desktop", "testCommand": "docker", "optional": true }
+      ]
+    }
+  }
+}

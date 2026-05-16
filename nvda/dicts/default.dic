@@ -1,0 +1,25 @@
+APIs	apis	1	2
+WHERE	where	1	2
+SELECT	select	1	2
+Fallback	fallbeck	0	0
+retry	retrai	0	0
+set	sett	0	2
+.set	.sett	0	0
+GO	Go	1	2
+[⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏]		0	1
+[✓✔]	Concluído	0	1
+[✗✘✕]	Erro	0	1
+[⚠⚡]	aviso	0	1
+[🔧📁📄📝🔍💡🛠️🗂️]		0	1
+[✨🚀💬🤖🎯📌🔔]		0	1
+●	marcado, 	0	1
+○	desmarcado, 	0	1
+[◆◇■□▪▫▸▹►▻]		0	1
+[🟢🔴🟡🔵⚫⚪🟠🟣]		0	1
+├──\s*	item, 	0	1
+└──\s*	fim da árvore, 	0	1
+│\s{2,}	 	0	1
+❯\s*	selecionado, 	0	1
+›\s*	selecionado, 	0	1
+…		0	1
+·		0	1

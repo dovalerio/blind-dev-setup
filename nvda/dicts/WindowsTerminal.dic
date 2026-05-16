@@ -1,0 +1,39 @@
+ps c	c	0	0
+danilo@DESKTOP-4T9IO4U:	Danilo	0	0
+├──\s*	item, 	0	1
+└──\s*	fim da árvore, 	0	1
+│\s{2,}	 	0	1
+[┌┐└┘]		0	1
+[╭╮╯╰]		0	1
+[├┤┬┴┼]		0	1
+─{2,}		0	1
+(?<!\w)│(?!\w)		0	1
+❯\s*	selecionado, 	0	1
+›\s*	selecionado, 	0	1
+↑	Entrada	0	1
+↓	Saída	0	1
+→		0	1
+diff --git a/\S+ b/(\S+)	diferença em \1	0	1
+index [0-9a-f]+\.\.[0-9a-f]+ \d+		0	1
+--- a/(\S+)	antes: \1	0	1
+\+\+\+ b/(\S+)	depois: \1	0	1
+@@ -\d+(?:,\d+)? \+\d+(?:,\d+)? @@.*	trecho:	0	1
+-{3,}		0	1
+•		0	1
+\s+modified:\s+	 modificado: 	0	1
+\s+new file:\s+	 novo arquivo: 	0	1
+\s+deleted:\s+	 deletado: 	0	1
+\s+renamed:\s+	 renomeado: 	0	1
+\?\?\s+	não rastreado: 	0	1
+remote:\s*		0	1
+\|\s+\d+(?:\.\d+)?\s*(?:KiB|MiB|GiB|KB|MB|GB|B)/s		0	1
+([0-9a-f]{4,12})\.\.([0-9a-f]{4,12})	\1 para \2	0	1
+\s+->\s+	 para 	0	1
+\b[0-9a-f]{20,40}\b	hash	0	1
+\d[\d,]*\s*tokens[^\n]*\$[\d.]+		0	1
+\$[\d]+\.[\d]{2}		0	1
+[█▓▒░]{2,}		0	1
+\s{4,}	 	0	1
+<\s*>		0	1
+\x1b\[[0-9;]*[mKJHABCDsu]		0	1
+\x1b\[[\?]?[0-9]*[lh]		0	1

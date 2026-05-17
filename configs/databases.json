@@ -1,0 +1,20 @@
+{
+  "postgresql": [
+    { "name": "PostgreSQL 17 (latest)", "method": "choco", "chocoId": "postgresql17", "testCommand": "psql" },
+    { "name": "PostgreSQL 16 LTS",      "method": "choco", "chocoId": "postgresql16", "testCommand": "psql" },
+    { "name": "PostgreSQL 15",          "method": "choco", "chocoId": "postgresql15", "testCommand": "psql" }
+  ],
+  "mysql": [
+    { "name": "MySQL 8.4 LTS", "method": "winget", "wingetId": "Oracle.MySQL",  "testCommand": "mysql" },
+    { "name": "MySQL 8.0",     "method": "choco",  "chocoId":  "mysql",         "testCommand": "mysql" }
+  ],
+  "optional": [
+    { "name": "MongoDB 7",              "method": "choco",  "chocoId":  "mongodb",           "testCommand": "mongod"  },
+    { "name": "Redis (via Docker)",     "method": "docker", "dockerImage": "redis:latest",   "port": 6379              },
+    { "name": "Redis via Memurai",      "method": "choco",  "chocoId":  "memurai-developer", "testCommand": "memurai" }
+  ],
+  "tools": [
+    { "name": "DBeaver Community", "wingetId": "dbeaver.dbeaver",    "testCommand": "" },
+    { "name": "TablePlus",         "wingetId": "TablePlus.TablePlus","testCommand": "" }
+  ]
+}

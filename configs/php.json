@@ -1,0 +1,23 @@
+{
+  "versions": [
+    { "name": "PHP 8.4 (latest)", "wingetId": "PHP.PHP",     "chocoId": "php",   "testCommand": "php" },
+    { "name": "PHP 8.3",          "wingetId": "PHP.PHP.8.3", "chocoId": "php83", "testCommand": "php" },
+    { "name": "PHP 8.2",          "wingetId": "PHP.PHP.8.2", "chocoId": "php82", "testCommand": "php" }
+  ],
+  "tools": [
+    {
+      "name": "Composer",
+      "method": "script",
+      "installerUrl": "https://getcomposer.org/installer",
+      "installDir": "Composer",
+      "testCommand": "composer"
+    },
+    {
+      "name": "Symfony CLI",
+      "method": "winget",
+      "wingetId": "Symfony.SymfonyCLI",
+      "chocoId": "symfony-cli",
+      "testCommand": "symfony"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "npm": [
+    { "name": "Claude Code",  "package": "@anthropic-ai/claude-code", "testCommand": "claude"  },
+    { "name": "Gemini CLI",   "package": "@google/gemini-cli",        "testCommand": "gemini"  },
+    { "name": "Codex CLI",    "package": "@openai/codex",             "testCommand": "codex"   }
+  ],
+  "pipx": [
+    { "name": "Aider",      "package": "aider-chat", "testCommand": "aider"  },
+    { "name": "OpenAI CLI", "package": "openai",     "testCommand": "openai" }
+  ],
+  "wingetOptional": [
+    { "name": "Ollama (modelos locais)", "wingetId": "Ollama.Ollama", "testCommand": "ollama" }
+  ]
+}

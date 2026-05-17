@@ -1,0 +1,29 @@
+{
+  "groups": [
+    {
+      "title": "IntelliJ IDEA",
+      "options": [
+        { "name": "IntelliJ IDEA Community (gratuito)", "wingetId": "JetBrains.IntelliJIDEA.Community", "chocoId": "intellijidea-community" },
+        { "name": "IntelliJ IDEA Ultimate (licenca)",   "wingetId": "JetBrains.IntelliJIDEA",           "chocoId": "intellijidea"           }
+      ]
+    },
+    {
+      "title": "PyCharm",
+      "options": [
+        { "name": "PyCharm Community (gratuito)", "wingetId": "JetBrains.PyCharm.Community", "chocoId": "pycharm-community" },
+        { "name": "PyCharm Professional (licenca)","wingetId": "JetBrains.PyCharm",           "chocoId": "pycharm"           }
+      ]
+    },
+    {
+      "title": "Visual Studio Code",
+      "options": [
+        { "name": "VS Code Stable (recomendado)", "wingetId": "Microsoft.VisualStudioCode",          "chocoId": "vscode"          },
+        { "name": "VS Code Insiders (preview)",   "wingetId": "Microsoft.VisualStudioCode.Insiders", "chocoId": "vscode-insiders" }
+      ]
+    }
+  ],
+  "standalone": [
+    { "name": "JetBrains Rider",  "wingetId": "JetBrains.Rider",     "testCommand": "" },
+    { "name": "Android Studio",   "wingetId": "Google.AndroidStudio", "testCommand": "" }
+  ]
+}

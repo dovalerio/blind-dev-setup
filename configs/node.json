@@ -1,0 +1,12 @@
+{
+  "versions": [
+    { "name": "Node.js LTS (recomendado)", "wingetId": "OpenJS.NodeJS.LTS", "chocoId": "nodejs-lts" },
+    { "name": "Node.js Current",           "wingetId": "OpenJS.NodeJS",     "chocoId": "nodejs"     }
+  ],
+  "tools": [
+    { "name": "pnpm",  "method": "npm",    "package": "pnpm",          "testCommand": "pnpm"  },
+    { "name": "yarn",  "method": "npm",    "package": "yarn",          "testCommand": "yarn"  },
+    { "name": "bun",   "method": "winget", "wingetId": "Oven-sh.Bun",  "testCommand": "bun"   },
+    { "name": "deno",  "method": "winget", "wingetId": "DenoLand.Deno","testCommand": "deno"  }
+  ]
+}

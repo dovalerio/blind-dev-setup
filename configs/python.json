@@ -1,0 +1,14 @@
+{
+  "versions": [
+    { "name": "Python 3.13 (latest)", "wingetId": "Python.Python.3.13", "chocoId": "python313", "testCommand": "python" },
+    { "name": "Python 3.12 LTS",      "wingetId": "Python.Python.3.12", "chocoId": "python312", "testCommand": "python" },
+    { "name": "Python 3.11",          "wingetId": "Python.Python.3.11", "chocoId": "python311", "testCommand": "python" }
+  ],
+  "tools": [
+    { "name": "uv (gerenciador moderno)", "method": "winget", "wingetId": "astral-sh.uv",  "testCommand": "uv"         },
+    { "name": "Poetry",                   "method": "pipx",   "package": "poetry",          "testCommand": "poetry"     },
+    { "name": "Ruff (linter/formatter)",  "method": "pipx",   "package": "ruff",            "testCommand": "ruff"       },
+    { "name": "Black (formatter)",        "method": "pipx",   "package": "black",           "testCommand": "black"      },
+    { "name": "virtualenv",              "method": "pip",    "package": "virtualenv",       "testCommand": "virtualenv" }
+  ]
+}

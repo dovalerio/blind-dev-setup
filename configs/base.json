@@ -1,0 +1,19 @@
+{
+  "packages": [
+    { "name": "Git",              "wingetId": "Git.Git",                      "chocoId": "git",                        "testCommand": "git"       },
+    { "name": "GitHub CLI",       "wingetId": "GitHub.cli",                   "chocoId": "gh",                         "testCommand": "gh"        },
+    { "name": "Windows Terminal", "wingetId": "Microsoft.WindowsTerminal",     "chocoId": "microsoft-windows-terminal", "testCommand": ""          },
+    { "name": "PowerShell 7",     "wingetId": "Microsoft.PowerShell",         "chocoId": "powershell-core",            "testCommand": "pwsh"      },
+    { "name": "7-Zip",            "wingetId": "7zip.7zip",                    "chocoId": "7zip",                       "testCommand": "7z"        },
+    { "name": "curl",             "wingetId": "cURL.cURL",                    "chocoId": "curl",                       "testCommand": "curl"      },
+    { "name": "wget",             "wingetId": "JernejSimoncic.Wget",          "chocoId": "wget",                       "testCommand": "wget"      },
+    { "name": "jq",               "wingetId": "jqlang.jq",                    "chocoId": "jq",                         "testCommand": "jq"        },
+    { "name": "yq",               "wingetId": "MikeFarah.yq",                 "chocoId": "yq",                         "testCommand": "yq"        },
+    { "name": "ripgrep",          "wingetId": "BurntSushi.ripgrep.MSVC",      "chocoId": "ripgrep",                    "testCommand": "rg"        },
+    { "name": "fd",               "wingetId": "sharkdp.fd",                   "chocoId": "fd",                         "testCommand": "fd"        },
+    { "name": "fzf",              "wingetId": "junegunn.fzf",                 "chocoId": "fzf",                        "testCommand": "fzf"       },
+    { "name": "Oh My Posh",       "wingetId": "JanDeDobbeleer.OhMyPosh",      "chocoId": "oh-my-posh",                 "testCommand": "oh-my-posh"},
+    { "name": "Visual Studio Code","wingetId": "Microsoft.VisualStudioCode",   "chocoId": "vscode",                     "testCommand": "code"      },
+    { "name": "Notepad++",        "wingetId": "Notepad++.Notepad++",          "chocoId": "notepadplusplus",            "testCommand": ""          }
+  ]
+}

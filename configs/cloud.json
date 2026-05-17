@@ -1,0 +1,15 @@
+{
+  "required": [
+    { "name": "kubectl",      "wingetId": "Kubernetes.kubectl",   "chocoId": "kubernetes-cli", "testCommand": "kubectl"   },
+    { "name": "Helm",         "wingetId": "Helm.Helm",            "chocoId": "kubernetes-helm","testCommand": "helm"      },
+    { "name": "Terraform",    "wingetId": "Hashicorp.Terraform",  "chocoId": "terraform",      "testCommand": "terraform" },
+    { "name": "AWS CLI v2",   "wingetId": "Amazon.AWSCLI",        "chocoId": "awscli",         "testCommand": "aws"       },
+    { "name": "Azure CLI",    "wingetId": "Microsoft.AzureCLI",   "chocoId": "azure-cli",      "testCommand": "az"        },
+    { "name": "Google Cloud SDK", "wingetId": "Google.CloudSDK",  "chocoId": "gcloudsdk",      "testCommand": "gcloud"    }
+  ],
+  "optional": [
+    { "name": "Docker Desktop", "wingetId": "Docker.DockerDesktop", "chocoId": "docker-desktop", "testCommand": "docker" },
+    { "name": "k9s (TUI Kubernetes)", "wingetId": "Derailed.k9s",  "chocoId": "k9s",            "testCommand": "k9s"    },
+    { "name": "Lens (IDE Kubernetes)","wingetId": "Mirantis.Lens",  "chocoId": "lens",           "testCommand": ""       }
+  ]
+}

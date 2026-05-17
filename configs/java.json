@@ -1,0 +1,14 @@
+{
+  "jdk": [
+    { "name": "Amazon Corretto 21 LTS", "wingetId": "Amazon.Corretto.21.JDK",          "chocoId": "corretto21jdk",  "version": "21" },
+    { "name": "Amazon Corretto 25",     "wingetId": "Amazon.Corretto.25.JDK",          "chocoId": "corretto25jdk",  "version": "25" },
+    { "name": "Eclipse Temurin 21 LTS", "wingetId": "EclipseAdoptium.Temurin.21.JDK", "chocoId": "temurin21",      "version": "21" },
+    { "name": "Eclipse Temurin 17 LTS", "wingetId": "EclipseAdoptium.Temurin.17.JDK", "chocoId": "temurin17",      "version": "17" },
+    { "name": "Microsoft OpenJDK 21",   "wingetId": "Microsoft.OpenJDK.21",            "chocoId": "",               "version": "21" },
+    { "name": "Oracle JDK 21",          "wingetId": "Oracle.JDK.21",                  "chocoId": "",               "version": "21" }
+  ],
+  "buildTools": [
+    { "name": "Apache Maven 3 (latest)", "wingetId": "Apache.Maven",   "chocoId": "maven",  "testCommand": "mvn",    "envVar": "MAVEN_HOME",  "envVarAlias": "M2_HOME" },
+    { "name": "Gradle (latest)",         "wingetId": "Gradle.Gradle",  "chocoId": "gradle", "testCommand": "gradle", "envVar": "GRADLE_HOME", "envVarAlias": "" }
+  ]
+}

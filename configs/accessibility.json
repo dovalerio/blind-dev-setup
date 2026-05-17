@@ -1,0 +1,9 @@
+{
+  "optional": [
+    { "name": "NVDA (leitor de telas)",        "wingetId": "NVAccess.NVDA" },
+    { "name": "Accessibility Insights",        "wingetId": "Microsoft.AccessibilityInsights.forWindows" }
+  ],
+  "required": [
+    { "name": "Microsoft PowerToys",           "wingetId": "Microsoft.PowerToys" }
+  ]
+}

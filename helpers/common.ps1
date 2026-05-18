@@ -351,8 +351,10 @@ function Invoke-Export {
         "JAVA_HOME=$env:JAVA_HOME"
         "MAVEN_HOME=$env:MAVEN_HOME"
         "GRADLE_HOME=$env:GRADLE_HOME"
-        "Path=$env:Path"
         "PYTHON_HOME=$env:PYTHON_HOME"
+        "GOPATH=$env:GOPATH"
+        "GOROOT=$env:GOROOT"
+        "Path=$env:Path"
     ) | Set-Content $envFile -Encoding UTF8
     Write-AccessibleMessage "Snapshot de variaveis exportado em: $envFile" 'OK'
 }

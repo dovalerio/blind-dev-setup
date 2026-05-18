@@ -40,7 +40,8 @@ function Show-MainMenu {
     Write-Host ' 8 - IDEs'
     Write-Host ' 9 - Bancos de dados'
     Write-Host '10 - Acessibilidade'
-    Write-Host '11 - Instalar tudo'
+    Write-Host '11 - Configuracoes VS Code (acessibilidade NVDA)'
+    Write-Host '12 - Instalar tudo'
     Write-Host ' E - Exportar configuracao atual'
     Write-Host ' 0 - Sair'
     Write-Host ''
@@ -65,7 +66,7 @@ function Invoke-Script {
 function Invoke-All {
     '01-base.ps1', '02-ai-tools.ps1', '03-java.ps1', '04-python.ps1',
     '05-node.ps1', '06-php.ps1', '07-cloud.ps1', '08-ides.ps1',
-    '09-databases.ps1', '10-accessibility.ps1' | ForEach-Object { Invoke-Script $_ }
+    '09-databases.ps1', '10-accessibility.ps1', '11-vscode-config.ps1' | ForEach-Object { Invoke-Script $_ }
 }
 
 Invoke-PreChecks
@@ -85,10 +86,11 @@ while ($running) {
         '8'  { Invoke-Script '08-ides.ps1' }
         '9'  { Invoke-Script '09-databases.ps1' }
         '10' { Invoke-Script '10-accessibility.ps1' }
-        '11' { Invoke-All }
+        '11' { Invoke-Script '11-vscode-config.ps1' }
+        '12' { Invoke-All }
         'E'  { Invoke-Export }
         '0'  { Write-AccessibleMessage 'Encerrando. Consulte logs em: logs\'; $running = $false }
-        default { Write-AccessibleMessage "Opcao invalida: '$choice'. Digite um numero de 0 a 11." 'AVISO' }
+        default { Write-AccessibleMessage "Opcao invalida: '$choice'. Digite um numero de 0 a 12." 'AVISO' }
     }
     if ($running) {
         Write-Host ''

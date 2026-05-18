@@ -1,0 +1,48 @@
+// VS Code Keybindings — Acessibilidade NVDA
+// Navegacao estrutural estilo IntelliJ + atalhos de acessibilidade
+[
+
+    // === NAVEGACAO ESTRUTURAL — Alt+Down / Alt+Up (estilo IntelliJ) ===
+    // Requer extensao symbol-navigator (incluida neste repositorio)
+
+    { "key": "alt+down", "command": "symbolNavigator.nextSymbol", "when": "editorTextFocus" },
+    { "key": "alt+up",   "command": "symbolNavigator.prevSymbol", "when": "editorTextFocus" },
+
+    // Remove comportamentos originais do Alt+Up/Down (mover linha)
+    { "key": "alt+down", "command": "-editor.action.moveLinesDownAction", "when": "editorTextFocus && !editorReadonly" },
+    { "key": "alt+up",   "command": "-editor.action.moveLinesUpAction",   "when": "editorTextFocus && !editorReadonly" },
+
+    // Mover linha realocado para Ctrl+Shift+Alt+Down/Up
+    { "key": "ctrl+shift+alt+down", "command": "editor.action.moveLinesDownAction", "when": "editorTextFocus && !editorReadonly" },
+    { "key": "ctrl+shift+alt+up",   "command": "editor.action.moveLinesUpAction",   "when": "editorTextFocus && !editorReadonly" },
+
+    // === CONTEXTO ESTRUTURAL ===
+
+    // Ctrl+F6 — Breadcrumbs: mostra Arquivo > Classe > Metodo atual (NVDA le ao focar)
+    { "key": "ctrl+f6",  "command": "breadcrumbs.focusAndSelect", "when": "editorFocus && breadcrumbs.visible" },
+    { "key": "escape",   "command": "workbench.action.focusActiveEditorGroup", "when": "breadcrumbsActive" },
+
+    // Ctrl+Alt+O — Outline: arvore completa do arquivo
+    { "key": "ctrl+alt+o", "command": "outline.focus" },
+    { "key": "escape",     "command": "workbench.action.focusActiveEditorGroup", "when": "outlineFocus" },
+
+    // Alt+Shift+S — Seletor de simbolos (Quick Pick — lista completa)
+    { "key": "alt+shift+s", "command": "workbench.action.gotoSymbol", "when": "editorFocus" },
+
+    // === ACESSIBILIDADE ===
+
+    // Alt+H — Hover via teclado (documentacao, tipo, assinatura do simbolo)
+    { "key": "alt+h", "command": "editor.action.showHover", "when": "editorTextFocus" },
+
+    // Alt+F1 — Ajuda de acessibilidade do contexto atual
+    { "key": "alt+f1", "command": "editor.action.accessibilityHelp", "when": "editorFocus" },
+
+    // Alt+F2 — Accessible View (leitura completa de widgets sem fragmentacao)
+    { "key": "alt+f2", "command": "editor.action.accessibleView", "when": "accessibleViewIsShown || accessibilityHelpIsShown || accessibleViewCurrentProviderId != ''" },
+
+    // === ERROS E AVISOS ===
+
+    { "key": "alt+f8",       "command": "editor.action.marker.next", "when": "editorFocus" },
+    { "key": "alt+shift+f8", "command": "editor.action.marker.prev", "when": "editorFocus" }
+
+]

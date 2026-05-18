@@ -1,0 +1,22 @@
+{
+    "name": "symbol-navigator",
+    "displayName": "Symbol Navigator",
+    "description": "Navegacao entre simbolos (metodos/classes) com Alt+Up/Down — otimizado para NVDA",
+    "version": "0.0.1",
+    "publisher": "local",
+    "engines": { "vscode": "^1.70.0" },
+    "activationEvents": ["onStartupFinished"],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "symbolNavigator.nextSymbol",
+                "title": "Symbol Navigator: Proximo simbolo (metodo/classe)"
+            },
+            {
+                "command": "symbolNavigator.prevSymbol",
+                "title": "Symbol Navigator: Simbolo anterior (metodo/classe)"
+            }
+        ]
+    }
+}

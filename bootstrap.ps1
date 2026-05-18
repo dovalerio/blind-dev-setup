@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+#Requires -Version 5.1
 Set-StrictMode -Version Latest
 . (Join-Path $PSScriptRoot 'helpers\common.ps1')
 
@@ -13,9 +13,36 @@ function Invoke-PreChecks {
     Write-AccessibleMessage "winget $(winget --version) disponivel." 'OK'
 
     if ($PSVersionTable.PSVersion.Major -lt 7) {
-        Write-AccessibleMessage "PowerShell 7 necessario. Versao atual: $($PSVersionTable.PSVersion)" 'ERRO'
-        Write-AccessibleMessage 'Execute: winget install Microsoft.PowerShell' 'AVISO'
-        exit 1
+        Write-AccessibleMessage "PowerShell $($PSVersionTable.PSVersion) detectado. Versao 7 ou superior necessaria." 'AVISO'
+        Write-AccessibleMessage 'Tentando instalar PowerShell 7 via winget...' 'INFO'
+        try {
+            winget install --id Microsoft.PowerShell --silent `
+                --accept-package-agreements --accept-source-agreements 2>&1 |
+                ForEach-Object { Write-SetupLog $_ }
+
+            if ($LASTEXITCODE -in @(0, -1978335189, -1978335191)) {
+                Write-AccessibleMessage 'PowerShell 7 instalado com sucesso.' 'OK'
+            } else {
+                Write-AccessibleMessage "winget retornou codigo $LASTEXITCODE. Tente instalar manualmente." 'ERRO'
+                Write-AccessibleMessage 'Comando: winget install Microsoft.PowerShell' 'INFO'
+                exit 1
+            }
+        } catch {
+            Write-AccessibleMessage "Falha ao instalar PowerShell 7: $_" 'ERRO'
+            Write-AccessibleMessage 'Instale manualmente: winget install Microsoft.PowerShell' 'INFO'
+            exit 1
+        }
+
+        Write-Host ''
+        Write-Host '============================================================'
+        Write-AccessibleMessage 'PROXIMOS PASSOS:' 'SECAO'
+        Write-Host '  1. Feche este terminal.'
+        Write-Host '  2. Abra o PowerShell 7 (procure por "PowerShell 7" no menu Iniciar'
+        Write-Host '     ou execute "pwsh" em um novo terminal).'
+        Write-Host '  3. Execute novamente: .\bootstrap.ps1'
+        Write-Host '============================================================'
+        Write-Host ''
+        exit 0
     }
     Write-AccessibleMessage "PowerShell $($PSVersionTable.PSVersion) confirmado." 'OK'
 

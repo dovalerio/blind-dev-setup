@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+#Requires -Version 5.1
 Set-StrictMode -Version Latest
 . (Join-Path (Split-Path $PSScriptRoot -Parent) 'helpers\common.ps1')
 
@@ -84,9 +84,13 @@ $settingsTarget = Join-Path $vsCodeUserDir 'settings.json'
 $settingsSrc    = Join-Path $repoVSCodeDir 'settings.json'
 
 if (Test-Path $settingsTarget) {
+    $ps7Available = $PSVersionTable.PSVersion.Major -ge 7
+
     Write-Host ''
     Write-Host 'settings.json ja existe. Como deseja proceder?'
-    Write-Host '  1 - Merge inteligente (adiciona/sobrepoe nossas configs, mantem o restante)'
+    if ($ps7Available) {
+        Write-Host '  1 - Merge inteligente (adiciona/sobrepoe nossas configs, mantem o restante)'
+    }
     Write-Host '  2 - Substituir por completo (backup criado automaticamente)'
     Write-Host '  S - Pular'
     Write-Host ''
@@ -95,6 +99,10 @@ if (Test-Path $settingsTarget) {
 
     switch ($settingsChoice) {
         '1' {
+            if (-not $ps7Available) {
+                Write-AccessibleMessage 'Merge requer PowerShell 7. Use a opcao 2 (substituir) nesta sessao.' 'AVISO'
+                break
+            }
             try {
                 $existing = Get-Content $settingsTarget -Raw -Encoding UTF8 |
                             ConvertFrom-Json -AsHashtable -ErrorAction Stop

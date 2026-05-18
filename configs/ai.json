@@ -1,8 +1,9 @@
 {
   "npm": [
-    { "name": "Claude Code",  "package": "@anthropic-ai/claude-code", "testCommand": "claude"  },
-    { "name": "Gemini CLI",   "package": "@google/gemini-cli",        "testCommand": "gemini"  },
-    { "name": "Codex CLI",    "package": "@openai/codex",             "testCommand": "codex"   }
+    { "name": "Claude Code",  "package": "@anthropic-ai/claude-code", "testCommand": "claude"   },
+    { "name": "Gemini CLI",   "package": "@google/gemini-cli",        "testCommand": "gemini"   },
+    { "name": "Codex CLI",    "package": "@openai/codex",             "testCommand": "codex"    },
+    { "name": "OpenCode",     "package": "opencode",                  "testCommand": "opencode" }
   ],
   "pipx": [
     { "name": "Aider",      "package": "aider-chat", "testCommand": "aider"  },

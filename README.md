@@ -46,7 +46,9 @@ O script verifica admin, winget, PS7 e conectividade antes de exibir o menu.
  8 - IDEs
  9 - Bancos de dados
 10 - Acessibilidade
-11 - Instalar tudo
+11 - Configuracoes VS Code (acessibilidade NVDA)
+12 - Ambiente Golang
+13 - Instalar tudo
  E - Exportar configuracao atual
  0 - Sair
 ```
@@ -85,7 +87,7 @@ O mesmo fluxo se aplica a Python, Node.js, PHP, banco de dados, IDEs e ferrament
 5. Demais opcoes conforme necessidade
 6. Opcao 10 - Acessibilidade (instala dicionarios NVDA automaticamente)
 
-Ou use a opcao 11 para instalar tudo em sequencia.
+Ou use a opcao 13 para instalar tudo em sequencia.
 
 ---
 
@@ -107,6 +109,8 @@ blind-dev-setup/
     08-ides.ps1              IDEs com selecao de edicao.
     09-databases.ps1         Bancos de dados com selecao de versao.
     10-accessibility.ps1     Acessibilidade e dicionarios NVDA.
+    11-vscode-config.ps1     Configuracoes VS Code para acessibilidade NVDA.
+    12-golang.ps1            Ambiente Golang com ferramentas de desenvolvimento.
   configs/
     base.json                Pacotes da configuracao base.
     ai.json                  Ferramentas de IA.
@@ -118,6 +122,7 @@ blind-dev-setup/
     ides.json                IDEs e edicoes disponiveis.
     databases.json           Versoes de bancos de dados.
     accessibility.json       Ferramentas de acessibilidade.
+    golang.json              Versao do Go e ferramentas de desenvolvimento.
   nvda/
     dicts/
       default.dic            Dicionario global NVDA (todos os apps).
@@ -172,7 +177,7 @@ git, GitHub CLI, Windows Terminal, PowerShell 7, 7-Zip, curl, wget, jq, yq, ripg
 
 Requer Node.js e pipx instalados. Instala automaticamente se nao encontrar.
 
-Claude Code, Gemini CLI e Codex CLI via npm. Aider e OpenAI CLI via pipx. GitHub Copilot via extensao gh. Ollama opcional (prompt interativo).
+Claude Code, Gemini CLI, Codex CLI e OpenCode via npm. Aider e OpenAI CLI via pipx. GitHub Copilot via extensao gh. Ollama opcional (prompt interativo).
 
 ### 03-java.ps1
 
@@ -225,6 +230,18 @@ Instala automaticamente DBeaver Community e TablePlus.
 Prompt para NVDA e Accessibility Insights. Instala PowerToys automaticamente.
 
 Copia todos os dicionarios NVDA de `nvda/dicts/` para o perfil do usuario em `%APPDATA%\nvda\speechDicts\`.
+
+### 11-vscode-config.ps1
+
+Aplica configuracoes de acessibilidade do VS Code para uso com NVDA: ajustes de aria, feedback de progresso, editor acessivel e extensoes recomendadas.
+
+### 12-golang.ps1
+
+Instala Go via winget. Configura GOPATH em `%USERPROFILE%\go` e adiciona `%GOPATH%\bin` ao PATH do sistema.
+
+Instala automaticamente via `go install`: gopls (servidor de linguagem), Delve (debugger), Air (live reload), goimports e staticcheck.
+
+Opcional com prompt: golangci-lint.
 
 ---
 
@@ -309,6 +326,7 @@ symfony version
 claude --version
 gemini --version
 codex --version
+opencode --version
 aider --version
 kubectl version --client
 helm version
@@ -319,6 +337,12 @@ gcloud --version
 docker --version
 psql --version
 mysql --version
+go version
+gopls version
+dlv version
+air -v
+goimports --help
+staticcheck --version
 ```
 
 ---

@@ -1,0 +1,15 @@
+{
+  "versions": [
+    { "name": "Go (versao mais recente)", "wingetId": "GoLang.Go", "chocoId": "golang", "testCommand": "go" }
+  ],
+  "tools": [
+    { "name": "gopls (servidor de linguagem)", "method": "go", "goPackage": "golang.org/x/tools/gopls@latest",                       "testCommand": "gopls"    },
+    { "name": "Delve (debugger dlv)",          "method": "go", "goPackage": "github.com/go-delve/delve/cmd/dlv@latest",              "testCommand": "dlv"      },
+    { "name": "Air (live reload)",             "method": "go", "goPackage": "github.com/air-verse/air@latest",                       "testCommand": "air"      },
+    { "name": "goimports",                     "method": "go", "goPackage": "golang.org/x/tools/cmd/goimports@latest",               "testCommand": "goimports"},
+    { "name": "staticcheck (linter estatico)", "method": "go", "goPackage": "honnef.co/go/tools/cmd/staticcheck@latest",             "testCommand": "staticcheck" }
+  ],
+  "optional": [
+    { "name": "golangci-lint (agregador de linters)", "method": "winget", "wingetId": "golangci.golangci-lint", "testCommand": "golangci-lint" }
+  ]
+}

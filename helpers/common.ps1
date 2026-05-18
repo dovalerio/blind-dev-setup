@@ -196,6 +196,27 @@ function Install-PipxPackage {
     }
 }
 
+function Install-GoPackage {
+    param([string]$Name, [string]$GoPackage, [string]$TestCommand = '')
+    if ($TestCommand -and (Test-CommandExists $TestCommand)) {
+        Write-AccessibleMessage "$Name ja esta instalado. Pulando." 'OK'
+        return $true
+    }
+    if (-not (Test-CommandExists 'go')) {
+        Write-AccessibleMessage 'go nao encontrado. Execute a opcao 12 (Golang) primeiro.' 'ERRO'
+        return $false
+    }
+    Write-AccessibleMessage "Instalando $Name via go install. Aguarde."
+    try {
+        go install $GoPackage 2>&1 | ForEach-Object { Write-SetupLog $_ }
+        Write-AccessibleMessage "$Name instalado com sucesso." 'OK'
+        return $true
+    } catch {
+        Write-AccessibleMessage "Falha ao instalar $Name via go install: $_" 'ERRO'
+        return $false
+    }
+}
+
 function Invoke-WithRetry {
     param(
         [scriptblock]$Action,

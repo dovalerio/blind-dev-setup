@@ -1,0 +1,8 @@
+Arquivos esperados (use bat\baixar-zips.bat para popular):
+  jdk11-win-x64.zip  — OpenJDK 11 LTS (11.0.2)
+  jdk17-win-x64.zip  — OpenJDK 17 LTS (17.0.2)
+  jdk21-win-x64.zip  — OpenJDK 21 LTS (21.0.2)
+  jdk25-win-x64.zip  — OpenJDK 25 (via Adoptium)
+
+Instalacao: cada versao vai para %USERPROFILE%\ambiente\java{versao}
+JAVA_HOME e PATH sao configurados para a versao escolhida.

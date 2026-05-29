@@ -1,10 +1,11 @@
 #Requires -Version 5.1
 Set-StrictMode -Version Latest
 
-$script:RepoRoot  = Split-Path $PSScriptRoot -Parent
-$script:LogsDir   = Join-Path $script:RepoRoot 'logs'
-$script:LogFile   = Join-Path $script:LogsDir "setup-$(Get-Date -Format 'yyyy-MM-dd').log"
-$script:ConfigDir = Join-Path $script:RepoRoot 'configs'
+$script:RepoRoot    = Split-Path $PSScriptRoot -Parent
+$script:LogsDir     = Join-Path $script:RepoRoot 'logs'
+$script:LogFile     = Join-Path $script:LogsDir "setup-$(Get-Date -Format 'yyyy-MM-dd').log"
+$script:ConfigDir   = Join-Path $script:RepoRoot 'configs'
+$script:AmbienteDir = Join-Path $env:USERPROFILE 'ambiente'
 
 if (-not (Test-Path $script:LogsDir)) {
     New-Item -ItemType Directory -Path $script:LogsDir -Force | Out-Null
@@ -43,11 +44,10 @@ function Write-AccessibleMessage {
 function Ensure-Admin {
     $p = [Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()
     if (-not $p.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-        Write-AccessibleMessage 'Execute este script como Administrador.' 'ERRO'
-        Write-AccessibleMessage 'Clique com o botao direito no PowerShell e escolha Executar como administrador.' 'ERRO'
-        exit 1
+        Write-AccessibleMessage 'Sem privilegios de administrador. Variaveis e PATH serao configurados no escopo do usuario.' 'AVISO'
+    } else {
+        Write-AccessibleMessage 'Privilegios de administrador confirmados.' 'OK'
     }
-    Write-AccessibleMessage 'Privilegios de administrador confirmados.' 'OK'
 }
 
 function Test-Connectivity {
@@ -113,7 +113,7 @@ function Install-WingetPackage {
     }
     Write-AccessibleMessage "Instalando $Name. Aguarde."
     try {
-        $args = @('install', '--id', $WingetId, '--silent',
+        $args = @('install', '--id', $WingetId, '--silent', '--scope', 'user',
                   '--accept-package-agreements', '--accept-source-agreements') + $ExtraArgs
         winget @args 2>&1 | ForEach-Object { Write-SetupLog $_ }
         if ($LASTEXITCODE -in @(0, -1978335189, -1978335191)) {
@@ -292,22 +292,22 @@ function Add-ToSystemPath {
         Write-AccessibleMessage "Caminho nao existe, ignorado: $PathToAdd" 'AVISO'
         return
     }
-    $current = [Environment]::GetEnvironmentVariable('Path', 'Machine') -split ';' |
+    $current = [Environment]::GetEnvironmentVariable('Path', 'User') -split ';' |
                Where-Object { $_ -ne '' }
     if ($PathToAdd -in $current) {
         Write-AccessibleMessage "PATH ja contem: $PathToAdd" 'OK'
         return
     }
-    [Environment]::SetEnvironmentVariable('Path', ($current + $PathToAdd) -join ';', 'Machine')
+    [Environment]::SetEnvironmentVariable('Path', ($current + $PathToAdd) -join ';', 'User')
     $env:Path = "$env:Path;$PathToAdd"
-    Write-AccessibleMessage "Adicionado ao PATH do sistema: $PathToAdd" 'OK'
+    Write-AccessibleMessage "Adicionado ao PATH do usuario: $PathToAdd" 'OK'
 }
 
 function Set-SystemEnvVar {
     param([string]$Name, [string]$Value)
-    [Environment]::SetEnvironmentVariable($Name, $Value, 'Machine')
+    [Environment]::SetEnvironmentVariable($Name, $Value, 'User')
     [System.Environment]::SetEnvironmentVariable($Name, $Value, 'Process')
-    Write-AccessibleMessage "Variavel definida: $Name = $Value" 'OK'
+    Write-AccessibleMessage "Variavel definida (usuario): $Name = $Value" 'OK'
 }
 
 function Find-InstallDir {

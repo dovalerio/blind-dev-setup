@@ -1,0 +1,8 @@
+logs/
+exports/
+
+# ZIPs das ferramentas — arquivos grandes, nao versionados por padrao.
+# Para uso offline: execute bat\baixar-zips.bat e commite manualmente
+# apenas os ZIPs que quiser versionar (ex: com Git LFS).
+zip/**/*.zip
+zip/**/*.exe
